@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Roulette</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
+    </script>
+    <script type="text/javascript">
+	function refreshPage(){
+		if(confirm("Are you sure, want to refresh?")){
+			location.reload();
+		}				
+	}
+</script>
+  <script type="text/javascript">
+function SwapDivsWithClick(div1,div2,div3, div4)
+{
+   d1 = document.getElementById(div1);
+   d2 = document.getElementById(div2);
+   d3 = document.getElementById(div3);
+   d4 = document.getElementById(div4);
+   if( d2.style.display == "none" )
+   {
+      d1.style.display = "none";
+      d2.style.display = "block";
+      d3.style.display = "none";
+      d4.innerHTML = "Bon appetite!";
+   }
+
+}
+</script>
+
+
+  
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+ <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <i class="fas fa-envelope"></i>
+        </button>
+		 <a class="navbar-brand" onclick='refreshPage()' >
+             Restaurant Roulette
+     </a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="mailto:example@arcadia.edu">Email <i class="fas fa-envelope"></i></a></li>
+  </div>
+</div>
+        </ul>
+      </div>
+	    </div>
+  </div>
+  
+  
+  
+  
+  
+<div id="headerwrap">
+    <div class="container">
+        <div class="row centered">
+            
+               <h1 id="line">Welcome to our website!<h1> 
+            
+        </div> 
+    </div> 
+</div>
+       <div class ="container">
+           <div class ="row centered">
+               <br></br>
+               <div id="div1" style="display: block;">
+                    <p>Hello user, this program allows you to choose a random restauant in a 10 km radius. Please be aware that you might have to allow access to your current location - this information is not stored anywhere on the website. Please press the search button to make the request.   </p>
+                    <a><i class="fas fa-arrow-down"></i></a>
+                
+   <!-- <form action="">
+     Enter your location:<br>
+     <input type="text" name="firstname" value="Arcadia University">
+         </form>
+          <form action="">
+     Enter radius:<br>
+     <input type="number" min="0" name="firstname" value="10">
+   </form>   -->
+    
+           </div>
+           </div>
+    </div>
+      <div class ="container">
+          <div class ="row centered">
+              
+              <div id ="map" style="display: none;"></div>
+              <script >
+            var map, service, infoWindow, pos;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 40, lng: 260},
+          zoom: 4
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            map.setCenter(pos);
+            map.setZoom(16);
+            var request = {
+              location: pos,
+              radius: '10000',
+              type: ['restaurant'],
+              fields: ['place_id', 'photos']
+            };
+            
+
+
+            service = new google.maps.places.PlacesService(map);
+
+            service.nearbySearch(request, function(results, status) {
+              if (status == google.maps.places.PlacesServiceStatus.OK) {
+                var rand = Math.floor(Math.random() * results.length);
+                var randPlace = results[rand];
+
+                map.setCenter(randPlace.geometry.location);
+                
+                var request2 = {
+                  placeId: randPlace.place_id,
+                  fields: ['name', 'rating','formatted_address', 'price_level', 'geometry', 'formatted_phone_number', 'url']
+                };
+
+                service.getDetails(request2, function(place, status){
+                  var marker;
+                    if (status == google.maps.places.PlacesServiceStatus.OK) {
+                      marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location
+                      });
+                    }
+
+                    //console.log("yee");
+
+                    google.maps.event.addListener(marker, 'click', function() {
+                      //console.log("yeet");
+                      infoWindow.setContent( '<div><strong>' + place.name + '</strong><br>' + place.formatted_address + '<br>Phone: ' + place.formatted_phone_number +  '<br><br>Price Level: ' + place.price_level + '/5<br>' + 'Rating: ' + place.rating +  '/5' + '<br><br>URL: ' + place.url + '</div>');
+                      infoWindow.open(map, this);
+                    });                
+                  })
+                }
+            });
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+      </script>
+             
+          </div>
+      </div>
+      <div id="butt" style="display: block;">
+      <div class="container">
+          <div class="row centered">
+              <br></br>
+              <div class="text-center" >
+                  <a href="javascript:SwapDivsWithClick('div1','map','butt','line')">
+                  <button class="button"  style="horizontal-align:middle">
+                  <span>Search</span>
+                  </button>
+                  </a>
+          </div>
+          </div>
+          </div>
+      
+       </div>
+    <br></br>
+        <div id="r">
+           <div class="container">
+               <div class = "row centered">
+               
+            <a href="https://twitter.com/MLHacks?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.snapchat.com/"><i class="fab fa-snapchat-square"></i></a>
+            <a href="https://www.instagram.com/mlhacks/?hl=en"><i class="fab fa-instagram"></i></a>
+        </div>
+        </div>
+        </div>
+        
+    
+       
+        <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+             <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGFW3XUoRSCMrAsHczPpUFhrO6w8BFmYI&libraries=places&callback=initMap">
+    </script>
+   
+</body>
+</html>

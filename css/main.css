@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Raleway');
+
+body {
+	background-color: #f2f2f2;
+	font-family: "Lato";
+	font-weight: 300;
+	font-size: 16px;
+	color: #555;
+	
+	-webkit-font-smoothing: antialised;
+	
+	
+	margin-top: 70px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Raleway";
+	font-weight: 300;
+	color: #333;
+}
+
+p {
+	line-height: 28px;
+	margin-bottom: 25px;
+}
+
+.centered {
+	text-align: center;
+}
+
+
+
+a:hover, a:focus {
+	color: #7b7b7b;
+	text-decoration: none;
+	outline: 0;
+}
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+.navbar {
+	font-weight: 800;
+	font-size: 14px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.navbar-inverse {
+	background: #2d2d2d;
+	border-color: #2d2d2d;
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+	background-color: #ff7878;
+    letter-spacing: 1px;
+}
+ 
+ .navbar-inverse .navbar-brand {
+	 color: #999;
+	 font-weight: bolder;
+	 font-size: 22px;
+	 letter-spacing: 1px;
+ }
+
+ 
+ 
+  
+ #headerwrap {
+	 background: url(../img/restaurant.jpg) no-repeat center top;
+	
+     margin-top: -10px;
+	 padding-top: 20px;
+	 text-align: center;
+     background-attachment: relative;
+     background-position: center center;
+     min-height: 500px;
+     width 100%;
+    
+
+  
+     
+     backface-size: 100%;
+     -webkit-background-size: cover;
+}
+
+#headerwrap h1 {
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4);
+	margin-top: 175px;
+	color: antiquewhite;
+	font-size: 70px;
+	font-weight: 300;
+	letter-spacing: 3px; 
+	text-shadow: 5px 5px 8px black;
+}
+
+
+  #map {
+      
+        height: 600px;
+      }
+
+	
+	   
+}
+
+
+
+#switch {
+    
+    background-color: yellow; 
+  border: none;
+  color: white;
+  padding: 15px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+    
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+input[type=text] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=number] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+form {
+   font-size: 15px;
+	font-weight: 300;
+	letter-spacing: 1px; 
+	text-shadow: .5px .5px 2px #333; 
+}
+
+#r {
+    background-color: #e0e0e0;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+#r a {
+   color: dimgrey;
+    font-size: 30px;
+    padding: 20px;
+}
+
+#r a:hover {
+    color: #ff7878;
+}
+
+
+}
+#div1 p {
+    font-size: 20px;
+    
+}
+
+#div1 a {
+    font-size: 30px;
+    pointer-events: none;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
